@@ -4,13 +4,14 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
+import os
 
 def scrapPlayer():
     # Set up Selenium WebDriver (Chrome in this case)
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     # Open the webpage
-    driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#319068,59,7457598,42024")
+    driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#343985,59,7467244,42024")
     
     # Wait for the page to fully load
     time.sleep(5)  # Adjust based on page loading time
@@ -32,7 +33,7 @@ def scrapPlayer():
     last_tournament_name = ""
 
     # Prepare a list to hold the scraped data
-    data = []
+    new_data = []
 
     # Loop through rows starting from the 3rd row (index 2) and extract data
     for row in rows[2:]:
@@ -61,8 +62,9 @@ def scrapPlayer():
             points2 = columns[4].text.strip() if len(columns) > 4 else ''
             points3 = columns[5].text.strip() if len(columns) > 5 else ''
 
-            # Append the data to the list
-            data.append({
+            # Create a new entry
+            new_entry = {
+                "id": "BH",  # Add the fixed ID
                 "date": last_date,
                 "tournament": last_tournament_name,
                 "player": {
@@ -70,11 +72,30 @@ def scrapPlayer():
                     "link": player_link
                 },
                 "points": [points1, points2, points3]
-            })
+            }
 
-    # Save the data to a JSON file
+            # Append to new data only if it's not already in the list
+            new_data.append(new_entry)
+
+    # Check if the JSON file already exists
+    if os.path.exists('player_data.json'):
+        with open('player_data.json', 'r') as json_file:
+            existing_data = json.load(json_file)
+
+        # Create a set of existing entries for fast lookup
+        existing_entries = {json.dumps(entry, sort_keys=True) for entry in existing_data}
+
+        # Filter new data to remove duplicates
+        unique_data = [entry for entry in new_data if json.dumps(entry, sort_keys=True) not in existing_entries]
+    else:
+        unique_data = new_data
+
+    # Combine existing data with new unique data
+    combined_data = existing_data + unique_data if os.path.exists('player_data.json') else unique_data
+
+    # Save the combined data to the JSON file
     with open('player_data.json', 'w') as json_file:
-        json.dump(data, json_file, indent=4)
+        json.dump(combined_data, json_file, indent=4)
 
     # Close the browser
     driver.quit()
