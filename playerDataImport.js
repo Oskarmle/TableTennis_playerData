@@ -1,5 +1,5 @@
 // Fetch and display the player data
-fetch("../player_data.json")  // Adjust path as needed to point to the correct location
+fetch("../player_data.json") // Adjust path as needed to point to the correct location
   .then((response) => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -16,21 +16,25 @@ fetch("../player_data.json")  // Adjust path as needed to point to the correct l
       .querySelector("tbody");
 
     // Filter the data to find all records for the current player ID
-    const playerDataEntries = data.filter(player => player.id === currentPlayerId);
-    
+    const playerDataEntries = data.filter(
+      (player) => player.id === currentPlayerId
+    );
+
     if (playerDataEntries.length > 0) {
       // Loop through each record for the player and create a table row for each entry
+      let count = 1;
       playerDataEntries.forEach((playerData) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td id="date">${playerData.date}</td>
-          <td id="tournament">${playerData.tournament}</td>
-          <td id="playerName">${playerData.player.name}</td>
-          <td id="playerpoints">${playerData.points[0]}</td>
-          <td id="opponentPoints">${playerData.points[1]}</td>
-          <td id="pointScore">${playerData.points[2]}</td>
+          <td id="date${count}">${playerData.date}</td>
+          <td id="tournament${count}">${playerData.tournament}</td>
+          <td id="playerName${count}">${playerData.player.name}</td>
+          <td id="playerpoints${count}">${playerData.points[0]}</td>
+          <td id="opponentPoints${count}">${playerData.points[1]}</td>
+          <td id="pointScore${count}">${playerData.points[2]}</td>
         `;
         tableBody.appendChild(row);
+        count++;
       });
     } else {
       console.error("No data found for the current player.");
