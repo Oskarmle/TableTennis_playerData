@@ -44,10 +44,12 @@ fetch("../player_data.json")
             // console.log(`Row ${count}: The number includes a minus`);
             pointScoreElement.style.background = "#a00000";
             pointScoreElement.style.color = "white";
+            lostGames.push("lost");
           } else {
             // console.log(`Row ${count}: The number is a positive one`);
             pointScoreElement.style.background = "#008e00";
             pointScoreElement.style.color = "white";
+            wonGames.push("won");
           }
         }
 
@@ -58,13 +60,13 @@ fetch("../player_data.json")
         document.getElementById("ratingStartSeason").innerHTML =
           playerStartingPointFTable;
 
-        // console.log(playerStartingPointFTable);
+        console.log(playerStartingPointFTable);
 
         const pointScoreElementHTML = document.getElementById(
           `pointScore${count}-${currentPlayerId}`
         ).innerHTML;
 
-        console.log(pointScoreElementHTML);
+        // console.log(pointScoreElementHTML);
 
         count++;
       });
@@ -74,27 +76,82 @@ fetch("../player_data.json")
   })
   .catch((error) => console.error("Error fetching player data", error));
 
-  setTimeout(() => {
-    function addRating() {
-      const playerIdElement = document.getElementById("player-id");
-      const currentPlayerId = playerIdElement.getAttribute("data-player-id");
-      let totalScore = 0;
-  
-      // Calculate total pointScore
-      const rows = document.querySelectorAll(`#playerTable tbody tr`);
-      rows.forEach((row) => {
-        const pointScoreCell = row.querySelector(`[id^="pointScore"][id*="${currentPlayerId}"]`);
-        if (pointScoreCell) {
-          const pointScoreValue = parseFloat(pointScoreCell.textContent.trim());
-          if (!isNaN(pointScoreValue)) {
-            totalScore += pointScoreValue; // Add point score to total
-          }
-        }
-      });
-  
-      // Display total score (you can adjust where and how you display this)
-      console.log(`Total Point Score: ${totalScore}`);
-      document.getElementById("ratingNow").innerText = totalScore;
+setTimeout(() => {
+  addRating();
+  ratingChange();
+  Games();
+
+  // wonLost();
+}, 20);
+
+const playerIdElement = document.getElementById("player-id");
+const currentPlayerId = playerIdElement.getAttribute("data-player-id");
+function addRating() {
+  // Get the initial rating from "ratingStartSeason" and convert it to a number
+  let totalScore = parseFloat(
+    document.getElementById("ratingStartSeason").textContent.trim()
+  );
+  if (isNaN(totalScore)) totalScore = 1000; // Ensure totalScore is a number
+
+  // Calculate total pointScore
+  const rows = document.querySelectorAll(`#playerTable tbody tr`);
+  rows.forEach((row) => {
+    const pointScoreCell = row.querySelector(
+      `[id^="pointScore"][id*="${currentPlayerId}"]`
+    );
+    if (pointScoreCell) {
+      const pointScoreValue = parseFloat(pointScoreCell.textContent.trim());
+      if (!isNaN(pointScoreValue)) {
+        totalScore += pointScoreValue; // Add point score to total
+      }
     }
-    addRating();
-  }, 1000);
+  });
+
+  // Display total score in the "ratingNow" element
+  console.log(`Total Point Score: ${totalScore}`);
+  document.getElementById("ratingNow").innerText = totalScore.toFixed(); // Rounding to 2 decimals if needed
+}
+
+function ratingChange() {
+  // Set the initial number to 0
+  let totalScore = 0;
+
+  // Calculate total pointScore
+  const rows = document.querySelectorAll(`#playerTable tbody tr`);
+  rows.forEach((row) => {
+    const pointScoreCell = row.querySelector(
+      `[id^="pointScore"][id*="${currentPlayerId}"]`
+    );
+    if (pointScoreCell) {
+      const pointScoreValue = parseFloat(pointScoreCell.textContent.trim());
+      if (!isNaN(pointScoreValue)) {
+        totalScore += pointScoreValue; // Add point score to total
+      }
+    }
+  });
+  // Display total score in the "ratingNow" element
+  console.log(`Change in rating is: ${totalScore}`);
+  document.getElementById("ratingChange").innerText = totalScore;
+}
+// arrays that store lost/won games, pushed from the foreach function
+let wonGames = [];
+let lostGames = [];
+
+function Games() {
+  let games = document.querySelectorAll("#playerTable tbody tr");
+  let numberOfWonGames = wonGames.length;
+  let numberOfLostGames = lostGames.length;
+  console.log(`Has lost ${numberOfLostGames} games`);
+  console.log(`Has won ${numberOfWonGames} games`);
+
+  let countGames = games.length;
+
+  // Calculate the percentage of games won
+  let percentageWon = (100 * numberOfWonGames) / countGames;
+
+  console.log(countGames);
+  document.getElementById("numberOfGames").innerText = countGames;
+  document.getElementById("gamesWon").innerText = numberOfWonGames;
+  document.getElementById("gamesLost").innerText = numberOfLostGames;
+  document.getElementById("percentageWon").innerText = percentageWon.toFixed(1);
+}
