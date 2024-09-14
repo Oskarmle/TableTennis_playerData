@@ -1,4 +1,4 @@
-// Fetch and display the player data
+// Fetch the player data
 fetch("../player_data.json")
   .then((response) => {
     if (!response.ok) {
@@ -68,10 +68,10 @@ fetch("../player_data.json")
   .catch((error) => console.error("Error fetching player data", error));
 
 setTimeout(() => {
-  addRating();  // Calculate and display the rating now
-  ratingChange();  // Calculate and display the rating change
-  const percentageWon = Games();  // Calculate and get the percentage won
-  createPlayer(currentPlayerId, percentageWon); // Now call createPlayer after calculations
+  addRating();
+  ratingChange();
+  const percentageWon = Games();
+  createPlayer(currentPlayerId, percentageWon);
 }, 20);
 
 const playerIdElement = document.getElementById("player-id");
@@ -93,7 +93,7 @@ function addRating() {
     if (pointScoreCell) {
       const pointScoreValue = parseFloat(pointScoreCell.textContent.trim());
       if (!isNaN(pointScoreValue)) {
-        totalScore += pointScoreValue; // Add point score to total
+        totalScore += pointScoreValue;
       }
     }
   });
@@ -116,7 +116,7 @@ function ratingChange() {
     if (pointScoreCell) {
       const pointScoreValue = parseFloat(pointScoreCell.textContent.trim());
       if (!isNaN(pointScoreValue)) {
-        totalScore += pointScoreValue; // Add point score to total
+        totalScore += pointScoreValue;
       }
     }
   });
@@ -124,12 +124,12 @@ function ratingChange() {
   console.log(`Change in rating is: ${totalScore}`);
   document.getElementById("ratingChange").innerText = totalScore;
 }
-
-// arrays that store lost/won games, pushed from the foreach function
+ // arrays 
 let wonGames = [];
 let lostGames = [];
 
 function Games() {
+  // selects all the elements that meet the requirements
   let games = document.querySelectorAll("#playerTable tbody tr");
   let numberOfWonGames = wonGames.length;
   let numberOfLostGames = lostGames.length;
@@ -147,10 +147,11 @@ function Games() {
   document.getElementById("gamesLost").innerText = numberOfLostGames;
   document.getElementById("percentageWon").innerText = percentageWon.toFixed(1);
 
-  return percentageWon; // Return the percentageWon so it can be passed to createPlayer
+  // is returned for use in the createPlayer function
+  return percentageWon; 
 }
 
-// Function to create a player object
+// Creates an object and uses the values in the html
 function createPlayer(currentPlayerId, percentageWon) {
   const player = {
     id: currentPlayerId,
@@ -164,8 +165,8 @@ function createPlayer(currentPlayerId, percentageWon) {
       document.getElementById("ratingChange").textContent.trim()
     ),
     gamesPlayed: wonGames.length + lostGames.length,
-    gamesWon: wonGames.length, // Updated to get actual number of won games
-    gamesLost: lostGames.length, // Updated to get actual number of lost games
+    gamesWon: wonGames.length,
+    gamesLost: lostGames.length,
     percentageWon: percentageWon.toFixed(1),
   };
 
