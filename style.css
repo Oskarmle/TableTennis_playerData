@@ -8,15 +8,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
+    width: 100vw;
 }
 
 h1 {
     color: #333;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 24px;
+    font-size: 34px;
 }
 
 /* Container for links */
@@ -25,7 +25,50 @@ h1 {
     flex-wrap: wrap; /* Allow links to wrap to new lines */
     justify-content: center;
     gap: 15px; /* Spacing between items */
-    max-width: 1200px;
+    max-width: 1500px;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+main{
+    display: flex;
+    margin-top: 50px;
+    max-width: 1500px;
+    gap: 30px;
+    height: 400px;
+}
+
+.allStats{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: 35vw;
+    height: auto;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+li{
+    background: #ffffff;
+    color: #000000;
+    padding: 5px 0px 5px 20px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Link Styling */
@@ -50,4 +93,34 @@ a:hover {
     a {
         width: 100%;
     }
+}
+
+#first{
+    background: #ffd700;
+}
+
+#second{
+    background: silver;
+}
+
+#third{
+    background: #cd7f32;
+}
+
+#RatingStartSeasonList li div p{
+    margin: 5px 0 10px 0;
+}
+
+#RatingStartSeasonList li div h4{
+    margin: 10px 0 0 0;
+}
+
+/* all stats list srollbar styling */
+ul::-webkit-scrollbar {
+    width: 4px;
+}
+
+ul::-webkit-scrollbar-thumb{
+    background: grey;
+    border-radius: 4px;
 }
