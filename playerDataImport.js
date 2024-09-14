@@ -151,6 +151,9 @@ function Games() {
   return percentageWon; 
 }
 
+// imports the player array from the player.js file
+import { playersArray } from "./players.js";
+
 // Creates an object and uses the values in the html
 function createPlayer(currentPlayerId, percentageWon) {
   const player = {
@@ -171,4 +174,6 @@ function createPlayer(currentPlayerId, percentageWon) {
   };
 
   console.log(player);
+  playersArray.push(player)
+  localStorage.setItem('playersArray', JSON.stringify(playersArray))
 }
