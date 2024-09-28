@@ -18,7 +18,7 @@ fetch("../player_data.json")
     const playerDataEntries = data.filter(
       (player) => player.id === currentPlayerId
     );
-
+    
     if (playerDataEntries.length > 0) {
       // Loop through the data from the json file, Checking for ID's
       let count = 1;

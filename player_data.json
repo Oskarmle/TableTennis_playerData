@@ -586,5 +586,145 @@
             "1080",
             "-3"
         ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Morten Fjellerad",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#330527"
+        },
+        "points": [
+            "1043",
+            "1079",
+            "-4"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Kim Blankensteiner",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#327629"
+        },
+        "points": [
+            "1043",
+            "1015",
+            "6"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Kristian Bak",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#343000"
+        },
+        "points": [
+            "1043",
+            "1067",
+            "7"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Gert Dalskov",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#344637"
+        },
+        "points": [
+            "1043",
+            "1000",
+            "6"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Irena Deckert",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#340967"
+        },
+        "points": [
+            "1043",
+            "1067",
+            "7"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 7 Ama'r Open",
+        "player": {
+            "name": "Adrian Lucaci",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#348116"
+        },
+        "points": [
+            "1043",
+            "0",
+            "-5"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 6 Ama'r Open",
+        "player": {
+            "name": "Benny Nielsen",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#347799"
+        },
+        "points": [
+            "1043",
+            "1000",
+            "6"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 6 Ama'r Open",
+        "player": {
+            "name": "Thomas Foged",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#328720"
+        },
+        "points": [
+            "1043",
+            "1187",
+            "22"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 6 Ama'r Open",
+        "player": {
+            "name": "Rasmus J. Therkelsen",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#322932"
+        },
+        "points": [
+            "1043",
+            "1111",
+            "-3"
+        ]
+    },
+    {
+        "id": "BH",
+        "date": "14-09-2024",
+        "tournament": "Amager BTK Senior 6 Ama'r Open",
+        "player": {
+            "name": "Thomas Larsen",
+            "link": "http://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#345163"
+        },
+        "points": [
+            "1043",
+            "1043",
+            "-5"
+        ]
     }
 ]
