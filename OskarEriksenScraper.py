@@ -96,9 +96,6 @@ def scrapPlayer():
             points2 = columns[4].text.strip() if len(columns) > 4 else ''
             points3 = columns[5].text.strip() if len(columns) > 5 else ''
 
-            # Generate a unique gameID
-            game_id = get_next_game_id()
-
             # Create a new entry
             new_entry = {
             # "id": "PE",   #################### REMEMBER TO CHANGE ID ####################
@@ -120,7 +117,6 @@ def scrapPlayer():
             # "id": "SN",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "TD",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "TL",   #################### REMEMBER TO CHANGE ID ####################
-                "gameID": game_id,  # Use the incrementing gameID
                 "date": last_date,
                 "tournament": last_tournament_name,
                 "player": {
@@ -136,50 +132,69 @@ def scrapPlayer():
     # Close the browser
     driver.quit()
 
+    
+    # specific_id = "PE"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "BH"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "CN"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "DS"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "FB"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "HP"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "HW"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "JOJ"  #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "JR"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "KS"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "MB"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "MR"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "NK"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "NZ"   #################### REMEMBER TO CHANGE ID ####################
+    specific_id = "OMLE" #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "SM"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "SN"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "TD"   #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "TL"   #################### REMEMBER TO CHANGE ID ####################
+
     # Insert data into MongoDB
-    insert_to_mongodb(new_data)
+    insert_to_mongodb(new_data, specific_id)
 
-
-def get_next_game_id():
-    # Connect to MongoDB
+def insert_to_mongodb(data, specific_id):
     db = client["tabletennis"]  # Database name
-    counters_collection = db["counters"]  # Collection to store counters
+    collection = db["players"]  # Collection 
 
-    # Increment the 'gameID' counter and return the new value
-    result = counters_collection.find_one_and_update(
-        {"_id": "gameID"},  # Filter by the 'gameID' counter
-        {"$inc": {"seq": 1}},  # Increment the sequence by 1
-        return_document=True,  # Return the updated document
-        upsert=True  # Create the document if it doesn't exist
-    )
+    # Count existing records in the database with the specified ID
+    existing_count = collection.count_documents({"id": specific_id})  # Count records with ID 'OMLE'
+    print(f"Existing records in the database for ID '{specific_id}': {existing_count}")
 
-    return result["seq"]  # Return the new gameID number
+    # Filter the new data for the specific ID
+    new_entries_for_id = [entry for entry in data if entry["id"] == specific_id]
 
+    # Count how many new entries there are for the specific ID
+    new_count = len(new_entries_for_id)
+    print(f"New entries for ID '{specific_id}' in scraper array: {new_count}")
 
-def insert_to_mongodb(data):
-    db = client["tabletennis"]  # Database name
-    collection = db["players"]  # Collection name
+    # Calculate how many new records need to be inserted
+    records_to_insert = new_count - existing_count
 
+    # Prepare to insert new records
     inserted_count = 0
 
-    # Insert data into the MongoDB collection
-    for entry in data:
-        # Check if a matching entry already exists (to prevent duplicates)
-        existing_entry = collection.find_one({
-            "player.name": entry["player"]["name"],
-            "date": entry["date"],
-            "tournament": entry["tournament"],
-            "points": entry["points"]
-        })
+    # Only insert if there are more new entries than existing entries
+    if records_to_insert > 0:
+        # Insert only the last 'records_to_insert' entries from new_entries_for_id
+        entries_to_insert = new_entries_for_id[-records_to_insert:]  # Get the last records_to_insert entries
 
-        if existing_entry is None:
+        for entry in entries_to_insert:
             # Insert the new entry
             collection.insert_one(entry)
             inserted_count += 1
-        else:
-            print(f"Duplicate entry found for player: {entry['player']['name']}, tournament: {entry['tournament']}, date: {entry['date']}. Skipping insertion.")
+            print(f"Inserted new entry for ID '{specific_id}': {entry}")
+    
+    else:
+        print(f"No new records to insert for ID '{specific_id}'.")
 
-    print(f"Inserted {inserted_count} new records into MongoDB.")
+    print(f"Inserted {inserted_count} new records into MongoDB for ID '{specific_id}'.")
+
+
+
 
 # Call the scraping function
 scrapPlayer()

@@ -8,7 +8,8 @@
     <!-- stylesheet link -->
     <link rel="stylesheet" href="style.css" />
 
-    <script src="../players.js" type="module"></script>
+    <!-- scripts -->
+    <script src="logic/logic.js" type="module"></script>
   </head>
   <body>
     <h1>DEN STORE HOLDSPILLER OVERSIGT</h1>
@@ -39,37 +40,15 @@
     <main>
       <div class="allStats">
         <h3>Rating</h3>
-        <ul id="RatingStartSeasonList">
-          <li id="first">
-            <div>
-              <h4>Oskar Eriksen</h4>
-              <p>1632</p>
-            </div>
-          </li>
-          <li id="second">
-            <div>
-              <h4>Oskar Eriksen</h4>
-              <p>1632</p>
-            </div>
-          </li>
-          <li id="third">
-            <div>
-              <h4>Oskar Eriksen</h4>
-              <p>1632</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Oskar Eriksen</h4>
-              <p>1632</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Oskar Eriksen</h4>
-              <p>1632</p>
-            </div>
-          </li>
+        <ul id="RatingNowList">
+          <template id="RatingNowTemplate">
+            <li>
+              <div>
+                <h4>Oskar Eriksen</h4>
+                <p>1632</p>
+              </div>
+            </li>
+          </template>
         </ul>
       </div>
       <div class="allStats">
