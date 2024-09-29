@@ -52,6 +52,17 @@ main{
     padding-bottom: 10px;
 }
 
+.allStats ul li div{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+.allStats ul li div h4, .allStats ul li div p{
+    margin: 5px 0 5px 0;
+}
+
 ul{
     margin: 0;
     padding: 0;
@@ -64,7 +75,6 @@ ul{
 li{
     background: #ffffff;
     color: #000000;
-    padding: 5px 0px 5px 20px;
     margin-bottom: 8px;
     border-radius: 10px;
     margin-right: 4px;
@@ -95,15 +105,15 @@ a:hover {
     }
 }
 
-#first{
+.first-player{
     background: #ffd700;
 }
 
-#second{
+.second-player{
     background: silver;
 }
 
-#third{
+.third-player{
     background: #cd7f32;
 }
 
@@ -123,4 +133,8 @@ ul::-webkit-scrollbar {
 ul::-webkit-scrollbar-thumb{
     background: grey;
     border-radius: 4px;
+}
+
+.playerName .playerStat{
+    margin: 0;
 }

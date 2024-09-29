@@ -39,19 +39,6 @@
 
     <main>
       <div class="allStats">
-        <h3>Rating</h3>
-        <ul id="RatingNowList">
-          <template id="RatingNowTemplate">
-            <li>
-              <div>
-                <h4>Oskar Eriksen</h4>
-                <p>1632</p>
-              </div>
-            </li>
-          </template>
-        </ul>
-      </div>
-      <div class="allStats">
         <h3>Rating start</h3>
         <ul id="RatingStartSeasonList"></ul>
       </div>
@@ -82,3 +69,12 @@
     </main>
   </body>
 </html>
+
+<template id="statTemplate">
+  <li class="statList">
+    <div class="statBox">
+      <h4 class="playerName"></h4>
+      <p class="playerStat"></p>
+    </div>
+  </li>
+</template>
