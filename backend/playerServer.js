@@ -67,7 +67,7 @@ const getAllPlayerData = async () => {
   } catch (error) {
     console.error("Error fetching player data:", error);
     throw error;
-  } finally {
-    await client.close();
+  // } finally {
+  //   await client.close();
   }
 };
