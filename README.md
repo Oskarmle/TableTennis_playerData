@@ -1,1 +1,1 @@
-Python script that scraps bordtennisportalen.dk and imports the stats from different players
+Hobby project to display data from my table tennis club
