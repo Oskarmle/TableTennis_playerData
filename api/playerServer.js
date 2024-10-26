@@ -38,7 +38,7 @@ async function connectToDB() {
 }
 
 // API route for players
-app.get("/players", async (req, res) => {
+app.get("/api/players", async (req, res) => {
   try {
     await connectToDB();
     const playerData = await playerDB.find({}).toArray();
