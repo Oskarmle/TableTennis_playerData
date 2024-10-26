@@ -38,16 +38,16 @@ export let countNumberOfGamesPlayed = (
 
     statClone.querySelector(".playerName").textContent = fullName;
     statClone.querySelector(".playerStat").textContent = gamesCounts[playerId];
+    
+    // giving 1st, 2nd and 3rd a class
+    if (index === 0) {
+      statClone.querySelector(".statList").classList.add("first-place");
+    } else if (index === 1) {
+      statClone.querySelector(".statList").classList.add("second-place");
+    } else if (index === 2) {
+      statClone.querySelector(".statList").classList.add("third-place");
+    }
 
     numberOfGamesList.appendChild(statClone);
-
-    // giving 1st, 2nd and 3rd a class
-    // if (index === 0) {
-    //   statClone.querySelector(".statList").classList.add("first-player")
-    // } else if (index === 1) {
-    //   statClone.querySelector(".statList").classList.add("second-player")
-    // } else if (index === 2) {
-    //   statClone.querySelector(".statList").classList.add("third-player")
-    // }
   });
 };

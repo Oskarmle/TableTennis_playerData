@@ -1,3 +1,9 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -19,6 +25,11 @@ h1 {
     font-size: 34px;
 }
 
+h3{
+    margin: 8px 0;
+    font-size: 20px;
+}
+
 /* Container for links */
 .container {
     display: flex;
@@ -34,16 +45,18 @@ h1 {
 
 main{
     display: flex;
+    flex-direction: column;
     margin-top: 50px;
-    max-width: 1500px;
+    max-width: 95vw;
     gap: 30px;
     height: 400px;
+
 }
 
 .allStats{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    width: 35vw;
+    width: 80vw;
     height: auto;
     display: flex;
     /* justify-content: center; */
@@ -52,32 +65,31 @@ main{
     padding-bottom: 10px;
 }
 
-.allStats ul li div{
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 12px;
+.statBox{
+    padding: 10px 10px;
     font-size: 16px;
-}
-
-.allStats ul li div h4, .allStats ul li div p{
-    margin: 5px 0 5px 0;
+    width: 140px;
 }
 
 ul{
+    display: flex;
     margin: 0;
-    padding: 0;
+    padding: 8px;
     list-style-type: none;
-    width: 90%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    width: 95%;
+    overflow-y: hidden;
+    gap: 10px;
 }
 
-li{
+.playerName, .playerStat{
+    margin-top: 5px;
+    
+}
+
+.statList{
     background: #ffffff;
     color: #000000;
-    margin-bottom: 8px;
     border-radius: 10px;
-    margin-right: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -105,15 +117,15 @@ a:hover {
     }
 }
 
-.first-player{
+.first-place{
     background: #ffd700;
 }
 
-.second-player{
+.second-place{
     background: silver;
 }
 
-.third-player{
+.third-place{
     background: #cd7f32;
 }
 
@@ -127,7 +139,7 @@ a:hover {
 
 /* all stats list srollbar styling */
 ul::-webkit-scrollbar {
-    width: 4px;
+    height: 8px;
 }
 
 ul::-webkit-scrollbar-thumb{

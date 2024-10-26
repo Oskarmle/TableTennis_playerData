@@ -48,11 +48,11 @@ export let GamesAllPlayers = (allPlayerData, playerNames) => {
   });
 
   resultsArray.sort((a, b) => b.wonGames - a.wonGames);
-  const sortedLostGames = resultsArray.slice().sort((a, b) => b.lostGames - a.lostGames);
+  const sortedLostGames = resultsArray.slice().sort((b, a) => b.lostGames - a.lostGames);
   const sortedWinPercentage = resultsArray.slice().sort((a, b) => b.winPercentage - a.winPercentage);
 
   // Loop over the wonGamesArray
-  resultsArray.forEach(({ playerId, wonGames}) => {
+  resultsArray.forEach(({ playerId, wonGames}, index) => {
     // Create a clone for won games
     let wonStatClone = statTemplate.content.cloneNode(true);
 
@@ -62,10 +62,19 @@ export let GamesAllPlayers = (allPlayerData, playerNames) => {
     // Update won games list
     wonStatClone.querySelector(".playerName").textContent = fullName;
     wonStatClone.querySelector(".playerStat").textContent = wonGames;
+
+    if (index === 0) {
+      wonStatClone.querySelector(".statList").classList.add("first-place");
+    } else if (index === 1) {
+      wonStatClone.querySelector(".statList").classList.add("second-place");
+    } else if (index === 2) {
+      wonStatClone.querySelector(".statList").classList.add("third-place");
+    }
+
     gamesWonList.appendChild(wonStatClone);
   });
 
-  sortedLostGames.forEach(({ playerId, lostGames }) => {
+  sortedLostGames.forEach(({ playerId, lostGames }, index) => {
     let lostStatClone = statTemplate.content.cloneNode(true);
 
     // Import names from playerlist
@@ -74,11 +83,20 @@ export let GamesAllPlayers = (allPlayerData, playerNames) => {
     // Update lost games list
     lostStatClone.querySelector(".playerName").textContent = fullName;
     lostStatClone.querySelector(".playerStat").textContent = lostGames;
+
+    if (index === 0) {
+      lostStatClone.querySelector(".statList").classList.add("first-place");
+    } else if (index === 1) {
+      lostStatClone.querySelector(".statList").classList.add("second-place");
+    } else if (index === 2) {
+      lostStatClone.querySelector(".statList").classList.add("third-place");
+    }
+
     gamesLostList.appendChild(lostStatClone);
   });
 
   // Loop over the sorted winPercentageArray
-  sortedWinPercentage.forEach(({ playerId, winPercentage }) => {
+  sortedWinPercentage.forEach(({ playerId, winPercentage }, index) => {
     let percentageStatClone = statTemplate.content.cloneNode(true);
 
     // Import names from playerlist
@@ -87,6 +105,15 @@ export let GamesAllPlayers = (allPlayerData, playerNames) => {
     // Update win percentage list
     percentageStatClone.querySelector(".playerName").textContent = fullName;
     percentageStatClone.querySelector(".playerStat").textContent = winPercentage.toFixed(2);
+
+    if (index === 0) {
+      percentageStatClone.querySelector(".statList").classList.add("first-place");
+    } else if (index === 1) {
+      percentageStatClone.querySelector(".statList").classList.add("second-place");
+    } else if (index === 2) {
+      percentageStatClone.querySelector(".statList").classList.add("third-place");
+    }
+
     percentageWonList.appendChild(percentageStatClone);
   });
 };

@@ -39,13 +39,13 @@ def scrapPlayer():
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#343754,59,7478937,42024") # Hossein Pakdast | HP
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#141533,59,7449840,42024") # Heidi Weihrauch | HW
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#340787,59,7478179,42024") # John O. Jensen | JOJ
-    # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#342680,59,7466419,42024") # Jesper Rasmussem | JR
+    # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#342680,59,7466419,42024") # Jesper Rasmussen | JR
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#343104,59,7477982,42024") # Karsten Skals | KS
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#151637,59,7470091,42024") # Mogens Bentzen | MB
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#319070,59,7457754,42024") # Morten Ravn | MR
-    # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#317843,59,7481672,42024") # Nicolai Kistrup | NK
+    driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#317843,59,7481672,42024") # Nicolai Kistrup | NK
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#346720,59,7478163,42024") # Nikolaj Zingenberg | NZ
-    driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#319068,59,7457598,42024") # Oskar Eriksen | OMLE
+    # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#319068,59,7457598,42024") # Oskar Eriksen | OMLE
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#329787,59,7478266,42024") # Subhayu Mukherjee | SM
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#326538,59,7470020,42024") # Stig Nørgaard | SN
     # driver.get("https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#326539,59,7459788,42024") # Torri Danekilde | TD
@@ -110,9 +110,9 @@ def scrapPlayer():
             # "id": "KS",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "MB",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "MR",   #################### REMEMBER TO CHANGE ID ####################
-            # "id": "NK",   #################### REMEMBER TO CHANGE ID ####################
+            "id": "NK",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "NZ",   #################### REMEMBER TO CHANGE ID ####################
-            "id": "OMLE", #################### REMEMBER TO CHANGE ID ####################
+            # "id": "OMLE", #################### REMEMBER TO CHANGE ID ####################
             # "id": "SM",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "SN",   #################### REMEMBER TO CHANGE ID ####################
             # "id": "TD",   #################### REMEMBER TO CHANGE ID ####################
@@ -145,9 +145,9 @@ def scrapPlayer():
     # specific_id = "KS"   #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "MB"   #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "MR"   #################### REMEMBER TO CHANGE ID ####################
-    # specific_id = "NK"   #################### REMEMBER TO CHANGE ID ####################
+    specific_id = "NK"   #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "NZ"   #################### REMEMBER TO CHANGE ID ####################
-    specific_id = "OMLE" #################### REMEMBER TO CHANGE ID ####################
+    # specific_id = "OMLE" #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "SM"   #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "SN"   #################### REMEMBER TO CHANGE ID ####################
     # specific_id = "TD"   #################### REMEMBER TO CHANGE ID ####################

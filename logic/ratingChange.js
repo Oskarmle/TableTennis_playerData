@@ -30,7 +30,7 @@ export let changeInRatingAllPlayers = (allPlayerData, playerNames) => {
 //   console.log(sortedRatingChange);
   
 
-  sortedRatingChange.forEach(([playerId, points]) => {
+  sortedRatingChange.forEach(([playerId, points], index) => {
     let statClone = statTemplate.content.cloneNode(true);
 
     // Import names from playerlist
@@ -38,6 +38,15 @@ export let changeInRatingAllPlayers = (allPlayerData, playerNames) => {
 
     statClone.querySelector(".playerName").textContent = fullName;
     statClone.querySelector(".playerStat").textContent = points;
+
+    // giving 1st, 2nd and 3rd a class
+    if (index === 0) {
+      statClone.querySelector(".statList").classList.add("first-place");
+    } else if (index === 1) {
+      statClone.querySelector(".statList").classList.add("second-place");
+    } else if (index === 2) {
+      statClone.querySelector(".statList").classList.add("third-place");
+    }
 
     ratingChangeList.appendChild(statClone);
   });

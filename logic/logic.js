@@ -4,6 +4,7 @@ import { countNumberOfGamesPlayed } from "./numberOfGames.js";
 import { startRatingCount } from "./starRating.js";
 import { changeInRatingAllPlayers } from "./ratingChange.js";
 import { GamesAllPlayers } from "./lostWonGames.js";
+import { RatingNow } from "./ratingNow.js";
 
 window.addEventListener("load", async () => {
   const allPlayerData = await getPlayerData();
@@ -25,6 +26,8 @@ window.addEventListener("load", async () => {
 
   // Function that displays the amount of won and lost games, as well as showing the percentage won for each player
   GamesAllPlayers(allPlayerData, playerNames);
+
+  RatingNow(startRatingAllPlayers);
 });
 
 // ID name register
@@ -37,7 +40,7 @@ const playerNames = {
   HP: "Hossein Pakdast",
   HW: "Heidi Weihrauch",
   JOJ: "John O. Jensen",
-  JR: "Jesper Rasmussem",
+  JR: "Jesper Rasmussen",
   KS: "Karsten Skals",
   MB: "Mogens Bentzen",
   MR: "Morten Ravn",
