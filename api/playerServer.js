@@ -49,5 +49,13 @@ app.get("/players", async (req, res) => {
   }
 });
 
+// Use the PORT environment variable or fallback to 3000 for local development
+const PORT = process.env.PORT || 3004;
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 // Export the handler
 module.exports = app;
