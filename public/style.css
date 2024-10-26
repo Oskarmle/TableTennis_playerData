@@ -9,19 +9,19 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     width: 100vw;
+    margin-bottom: 20px;
+    height: 100%;
 }
 
 h1 {
     color: #333;
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 30px;
     font-size: 34px;
 }
 
@@ -47,10 +47,8 @@ main{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    max-width: 95vw;
-    gap: 30px;
-    height: 400px;
-
+    max-width: 1500px;
+    gap: 20px;
 }
 
 .allStats{
@@ -74,7 +72,7 @@ main{
 ul{
     display: flex;
     margin: 0;
-    padding: 8px;
+    padding: 12px;
     list-style-type: none;
     width: 95%;
     overflow-y: hidden;
@@ -97,7 +95,7 @@ ul{
 a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #159710;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -112,8 +110,22 @@ a:hover {
 
 /* Responsive Layout */
 @media (max-width: 600px) {
-    a {
-        width: 100%;
+    .container {
+        gap: 5px;
+        border-radius: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container a{
+        width: 50px;
+        padding: 7px 10px;
+    }
+
+    .playerName{
+        margin-top: 0;
     }
 }
 
@@ -129,14 +141,6 @@ a:hover {
     background: #cd7f32;
 }
 
-#RatingStartSeasonList li div p{
-    margin: 5px 0 10px 0;
-}
-
-#RatingStartSeasonList li div h4{
-    margin: 10px 0 0 0;
-}
-
 /* all stats list srollbar styling */
 ul::-webkit-scrollbar {
     height: 8px;
@@ -145,8 +149,4 @@ ul::-webkit-scrollbar {
 ul::-webkit-scrollbar-thumb{
     background: grey;
     border-radius: 4px;
-}
-
-.playerName .playerStat{
-    margin: 0;
 }
