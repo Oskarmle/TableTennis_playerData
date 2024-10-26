@@ -1,5 +1,5 @@
 export const getPlayerData = async () => {
-  const url = "http://127.0.0.1:3003/players";
+  const url = `${process.env.VITE_API_BASE_URL}/api/players`;
   try {
     const response = await fetch(url, {
       method: "GET",
