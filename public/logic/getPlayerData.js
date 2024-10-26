@@ -1,5 +1,5 @@
 export const getPlayerData = async () => {
-  const url = `${process.env.BASE_URL}/api/players`;
+  const url = `${BASE_URL}/api/players`;
   try {
     const response = await fetch(url, {
       method: "GET",
