@@ -1,18 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/playerServer.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "public/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/api/playerServer.js" },
-      { "src": "/(.*)", "dest": "/public/index.html" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/playerServer.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/playerServer.js" },
+    { "src": "/(.*)", "dest": "/public/$1" } 
+  ]
+}
