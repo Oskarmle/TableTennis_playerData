@@ -1,3 +1,5 @@
+const BASE_URL = 'https://tabletennis-playerdata.onrender.com';
+
 export const getPlayerData = async () => {
   const url = `${BASE_URL}/api/players`;
   try {
