@@ -54,7 +54,6 @@ main{
 .allStats{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    width: 80vw;
     height: auto;
     display: flex;
     /* justify-content: center; */
