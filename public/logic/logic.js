@@ -51,6 +51,8 @@ const playerNames = {
   SN: "Stig Nørgaard",
   TD: "Torri Danekilde",
   TL: "Torben Lang",
+  NW: "Nikolaj Wieczorek",
+  HS: "Henrik Schouby",
 };
 
 // Array with all player id's
@@ -74,6 +76,8 @@ const playerID = [
   "SN",
   "TD",
   "TL",
+  "NW",
+  "HS",
 ];
 
 // all start ratings for all players
@@ -83,7 +87,7 @@ const startRatingAllPlayers = [
   { id: "Heidi Weihrauch", startRating: 1654 },
   { id: "Oskar Eriksen", startRating: 1632 },
   { id: "Torben Lang", startRating: 1590 },
-  { id: "Nikolah Wieczorek", startRating: 1474 },
+  { id: "Nikolaj Wieczorek", startRating: 1474 },
   { id: "Carsten Nielsen", startRating: 1473 },
   { id: "Mogens Bentzen", startRating: 1465 },
   { id: "Nikolaj Zingenberg", startRating: 1404 },
@@ -98,4 +102,5 @@ const startRatingAllPlayers = [
   { id: "Karsten Skals", startRating: 1003 },
   { id: "Birk Herman", startRating: 1000 },
   { id: "Pernille Eskebo", startRating: 998 },
+  { id: "Henrik Schouby", startRating: 1000 },
 ];

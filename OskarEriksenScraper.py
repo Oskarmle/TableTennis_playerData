@@ -40,6 +40,8 @@ players = [
     {"id": "SN", "url": "https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#326538,59,7470020,42024"},
     {"id": "TD", "url": "https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#326539,59,7459788,42024"},
     {"id": "TL", "url": "https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#145074,59,7452597,42024"},
+    {"id": "NW", "url": "https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#132936,59,7459242,42024"},
+    {"id": "HS", "url": "https://www.bordtennisportalen.dk/DBTU/Spiller/VisSpiller/#347786,59,7484507,42024"},
 
     # Add other players here
 ]

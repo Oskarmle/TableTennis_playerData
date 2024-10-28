@@ -36,7 +36,7 @@ h3{
     flex-wrap: wrap; /* Allow links to wrap to new lines */
     justify-content: center;
     gap: 15px; /* Spacing between items */
-    max-width: 1500px;
+    max-width: 90vw;
     border-radius: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -47,7 +47,7 @@ main{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    max-width: 1500px;
+    max-width: 90vw;
     gap: 20px;
 }
 
@@ -63,9 +63,11 @@ main{
 }
 
 .statBox{
+    display: grid;
     padding: 10px 10px;
     font-size: 16px;
     width: 140px;
+    height: 100%;
 }
 
 ul{
@@ -78,9 +80,13 @@ ul{
     gap: 10px;
 }
 
-.playerName, .playerStat{
+.playerName{
     margin-top: 5px;
-    
+}
+
+.playerStat{
+    margin-top: 5px;
+    align-self: flex-end;
 }
 
 .statList{
